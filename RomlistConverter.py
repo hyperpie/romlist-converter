@@ -40,7 +40,12 @@ class RomlistConverter():
                     if line[0] != "#": # Skip comment lines
                         rom = line.split(";")[0]
                         console = line.split(";")[2]
-                        destination.write(self.hp_converter.get_rom_path(rom, console)+"\n")
+                        path = self.hp_converter.get_rom_path(rom, console)
+                        if "ERROR" in path:
+                            with open(romlist+".error", "w+") as log:
+                                log.write(path+"\n")
+                        else:
+                            destination.write(path+"\n")
         print("Write finished!")
 
 if __name__ == "__main__":
