@@ -1,5 +1,5 @@
 import os, sys
-from HPConvert import HPConvert
+from bs4 import BeautifulSoup
 
 class RomlistConverter():
 
@@ -7,11 +7,11 @@ class RomlistConverter():
     file_ending = ".txt"
     collections_dir = "/home/pi/.emulationstation/collections/"
 
-    hp_converter = HPConvert()
+    def __init__(self, es_systems_path="/etc/emulationstation/es_systems.cfg"):
+        with open(es_systems_path) as systems:
+            self.soup = BeautifulSoup(systems, "html5lib")
 
-    def run(self, amlist=None, romdir=None):
-        if romdir:
-            self.hp_converter.set_rom_folder(romdir)
+    def run_menu(self, amlist=None):
         print("HyperPie Romlist Converter v0.3 by Gubbjefvel")
         print("=================")
         if not amlist:
@@ -26,30 +26,46 @@ class RomlistConverter():
                 romlist = int(input("Specify romlist number: "))
             else:
                 romlist = int(raw_input("Specify romlist number: "))
-            self.parse_romlist(self.romlist_dir+romlists[romlist], romlists[romlist])
+            self.parse_romlist(romlists[romlist])
         else:
             print("Headless mode currently disabled! File: "+self.romlist_dir+amlist)
 
-    def parse_romlist(self, infile, romlist):
+    def parse_romlist(self, romlist):
         collname = "custom-"+romlist.split(".txt")[0]+".cfg"
         dest = self.collections_dir+collname
         print("Writing to: "+dest)
+        infile = self.romlist_dir+romlist
         with open(infile, "r") as txtlist:
             with open(dest, "w+") as destination:
                 for line in txtlist:
                     if line[0] != "#": # Skip comment lines
                         rom = line.split(";")[0]
                         console = line.split(";")[2]
-                        path = self.hp_converter.get_rom_path(rom, console)
+                        path = self.get_rom_path(rom, console)
                         if "ERROR" in path:
-                            with open(romlist+".error", "w+") as log:
+                            with open(romlist+".error", "a+") as log:
                                 log.write(path+"\n")
                         else:
                             destination.write(path+"\n")
         print("Write finished!")
 
+    def get_rom_path(self, rom, console):
+        console = console.split("\n")[0]
+        systems = self.soup.find_all("system")
+        for system in systems:
+            if console in system.find("fullname"):
+                extensions = system.find("extension").text.split(" ")
+                path = system.find("path").text+"/"
+                #print("ext: "+str(extensions)+"\n\tpath: "+str(path))
+                for extension in extensions:
+                    if os.path.isfile(path+rom+extension):
+                        return path+rom+extension
+        path = "./"
+        return "Console: "+console+ ", path: "+path+rom+" - ERROR CHECK FILE EXTENSION"
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        RomlistConverter().run(romdir=sys.argv[1])
+        RomlistConverter().run_menu(amlist=sys.argv[1])
     else:
-        RomlistConverter().run()
+        for romlistfile in sys.argv[1:]:
+            RomlistConverter().parse_romlist(romlistfile)
