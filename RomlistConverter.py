@@ -64,8 +64,9 @@ class RomlistConverter():
         return "Console: "+console+ ", path: "+path+rom+" - ERROR CHECK FILE EXTENSION"
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        RomlistConverter().run_menu(amlist=sys.argv[1])
+    if len(sys.argv) < 2:
+        RomlistConverter().run_menu()
     else:
         for romlistfile in sys.argv[1:]:
+            print(romlistfile)
             RomlistConverter().parse_romlist(romlistfile)

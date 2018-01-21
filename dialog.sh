@@ -12,11 +12,11 @@ cmd=(dialog --stdout --no-items \
 
 if (($menu == 1))
 then
-files=$(find $listfolder -maxdepth 1 -name '*.txt' -printf '%f\n')
+files=$(find $listfolder -maxdepth 1 -regex '\(.*lassics.*\|.*ollection.*\).*.txt' -printf '%f\n')
 python RomlistConverter.py $files
 elif (($menu == 2))
 then
-options=$(find $listfolder -maxdepth 1 -name '*.txt' -printf '%f\n' | awk '{print $1, "off"}')
+options=$(find $listfolder -maxdepth 1 -regex '\(.*lassics.*\|.*ollection.*\).*.txt' -printf '%f\n' | awk '{print $"1", "off"}')
 choices=$("${cmd[@]}" ${options})
 python RomlistConverter.py $choices
 fi
