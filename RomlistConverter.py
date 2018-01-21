@@ -51,6 +51,7 @@ class RomlistConverter():
 
     def get_rom_path(self, rom, console):
         console = console.split("\n")[0]
+        path = ""
         systems = self.soup.find_all("system")
         for system in systems:
             if console in system.find("fullname"):
@@ -60,7 +61,6 @@ class RomlistConverter():
                 for extension in extensions:
                     if os.path.isfile(path+rom+extension):
                         return path+rom+extension
-        path = "./"
         return "Console: "+console+ ", path: "+path+rom+" - ERROR CHECK FILE EXTENSION"
 
 if __name__ == "__main__":
