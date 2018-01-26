@@ -1,5 +1,6 @@
 #!/bin/bash
-listfolder='/home/pi/.attract/romlists/'
+listfolder='/home/jonas/romlists/'
+#'/home/pi/.attract/romlists/'
 
 regex='\(.*cave.*\|.*pgm.*\|.*psikyo.*\|.*technos.*\|.*visco.*\|.*wwf.*\|.*classics.*\|.*collection.*\|.*hacks.*\|.*shmup.*\|.*hacks.*\).*.txt'
 
@@ -19,13 +20,13 @@ files=$(find $listfolder -maxdepth 1 -iregex $regex -printf '%f\n')
 python RomlistConverter.py "$files"
 elif (($menu == 2))
 then
-options=$(find $listfolder -maxdepth 1 -iregex $regex -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}')
+options=$(find $listfolder -maxdepth 1 -iregex $regex -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}' | sort)
 
 choices=$("${cmd[@]}" ${options} | sed 's/+/ /g')
 python RomlistConverter.py "$choices"
 elif (($menu == 3))
 then
-options=$(find $listfolder -maxdepth 1 -iregex '.*.txt' -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}')
+options=$(find $listfolder -maxdepth 1 -iregex '.*.txt' -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}' | sort)
 
 choices=$("${cmd[@]}" ${options} | sed 's/+/ /g')
 python RomlistConverter.py "$choices"
