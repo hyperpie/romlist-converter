@@ -8,7 +8,7 @@ class RomlistConverter():
     collections_dir = "/home/pi/.emulationstation/collections/"
 
     def __init__(self, es_systems_path="/etc/emulationstation/es_systems.cfg"):
-        with open(es_systems_path) as systems:
+        with open(es_systems_path, "r") as systems:
             self.soup = BeautifulSoup(systems, "html5lib")
 
     def run_menu(self, amlist=None):
@@ -38,7 +38,7 @@ class RomlistConverter():
         with open(infile, "r") as txtlist:
             with open(dest, "w+") as destination:
                 for line in txtlist:
-                    if line[0] != "#": # Skip comment lines
+                    if line[0] != "#" and ";" in line: # Skip comments and empty lines
                         rom = line.split(";")[0]
                         console = line.split(";")[2]
                         path = self.get_rom_path(rom, console)
