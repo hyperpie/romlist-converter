@@ -1,0 +1,78 @@
+Amstrad CPC;amstradcpc/;.cdt%.cpc%.dsk
+Arcade;arcade/;.fba
+Atari 2600;atari2600/;.a26%.bin%.rom%.gz
+Atari 5200;atari5200/;.a52%.bin
+Atari 7800;atari7800/;.a78%.bin
+Atari Lynx;atarilynx/;.lnx
+Atari ST;atarist/;.st
+Bandai WonderSwan Color;wonderswancolor/;.wsc
+Bandai WonderSwan;wonderswan/;.ws
+ColecoVision;coleco/;.bin%.col%.rom
+Commodore 64;c64/;.crt%.d64%.g64%.prg%.t64%.tap%.x64%.vsf
+Commodore Amiga CD32;amigacd32/;.sh%.uae%.7z
+Commodore Amiga;amiga/;.uae%.sh
+Commodore VIC-20;vic20/;.crt%.d64%.g64%.prg%.t64%.tap%.x64%.vsf
+Daphne;daphne/;.daphne
+Final Burn Alpha;fba/;.fba
+Frotz;zmachine/;.dat%.z1%.z2%.z3%.z4%.z5%.z6%.z7%.z8%.7z
+Game and Watch;gameandwatch/;.mgw
+GCE Vectrex;vectrex/;.vec%.gam%.bin
+Magnavox Odyssey;videopac/;.bin
+Magnavox Odyssey 2;videopac/;.bin
+MAME (Advance);mame-advmame/;
+MAME (Libretro);mame-libretro/;
+MAME (Mame4all);mame-mame4all/;
+Mattel Intellivision;intellivision/;.int%.bin
+Microsoft MSX;msx/;.rom%.mx1%.mx2%.col%.dsk
+Microsoft MSX2;msx2/;.rom%.mx1%.mx2%.col%.dsk
+Microsoft MSX2+;msx2+/;
+NEC PC Engine;pcengine/;.pce
+NEC PC Engine-CD;pce-cd/;.cue
+NEC SuperGrafx;supergrafx/;.pce
+NEC TurboGrafx-16;tg16/;.cue%.pce
+NEC TurboGrafx-CD;tg16cd/;.cue%.ccd
+Nintendo 64;n64/;.n64%.z64%.v64
+Nintendo BS-X Satellaview;nintendobsx/;.bin;.smc%.sfc%.fig%.swc%.mgd
+Nintendo DS;nds/;.nds
+Nintendo Entertainment System Hacks;nesh/;.nes%.fds
+Nintendo Entertainment System;nes/;.nes
+Nintendo Famicom Disk System;fds/;.nes%.fds
+Nintendo Famicom;famicom/;.nes%.fds
+Nintendo Game and Watch;gameandwatch/;.mgw
+Nintendo Game Boy Advance Hacks;gbah/;.gba
+Nintendo Game Boy Advance;gba/;.gba
+Nintendo Game Boy Color;gbc/;.gbc
+Nintendo Game Boy Hacks;gbh/;.gb
+Nintendo Game Boy;gb/;.gb
+Nintendo Sufami Turbo;sufami/;.bin%.smc%.sfc%.fig%.swc%.mgd
+Nintendo Super Famicom;sfc/;.bin%.smc%.sfc%.fig%.swc%.mgd
+Nintendo Virtual Boy;virtualboy/;.vb
+Panasonic 3DO;3do/;.iso
+ScummVM;scummvm/;.svm
+Sega 32X;sega32x/;.32x%.smd%.bin%.md
+Sega CD;segacd/;.cue%.iso
+Sega Dreamcast;dreamcast/;.gdi%.cdi
+Sega Game Gear Hacks;ggh/;.gg%.bin%.sms
+Sega Game Gear;gamegear/;.gg%.bin%.sms
+Sega Genesis;megadrive/;.smd%.bin%.gen%.md%.sg
+Sega Mark III;markiii/;.sms
+Sega Master System (Tec Toy);tectoy/;.sms%.bin
+Sega Master System;mastersystem/;.sms%.bin
+Sega Mega Drive Hacks;genh/;.smd%.bin%.gen%.md%.sg
+Sega Mega Drive Japan;megadrive-japan/;.smd%.bin%.gen%.md%.sg
+Sega Mega Drive;megadrive/;.smd%.bin%.gen%.md%.sg
+Sega Mega-CD;segacd/;.cue%.iso
+Sega SC-3000;sc-3000/;.sg%.sc%.bin
+SegaSC-3000;sc-3000/;.sg%.sc%.bin
+Sega SG-1000;sg-1000/;.sg%.bin
+Sinclair ZX Spectrum;zxspectrum/;.sna%.szx%.z80%.tap%.tzx%.gz%.udi%.mgt%.img%.trd%.scl%.dsk
+SNK Neo Geo AES;neogoe/;.fba
+SNK Neo Geo Pocket Color;ngpc/;.ngc
+SNK Neo Geo Pocket;ngp/;.ngp
+SNK-Neo-Geo-CD;neogeocd/;.cue%.chd
+Sony PlayStation;psx/;.cue%.cbn%.img%.iso%.m3u%.mdf%.pbp
+Sony PSP Minis;pspminis/;.cso%.iso%.pbp
+Sony PSP;psp/;.cso%.iso%.pbp
+Super Nintendo Entertainment System CD;snecd/;.bin%.smc%.sfc%.fig%.swc%.mgd
+Super Nintendo Entertainment System Hacks;snesh/;.bin%.smc%.sfc%.fig%.swc%.mgd
+Super Nintendo Entertainment System;snes/;.bin%.smc%.sfc%.fig%.swc%.mgd

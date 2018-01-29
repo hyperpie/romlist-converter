@@ -53,14 +53,22 @@ class RomlistConverter():
         console = console.split("\n")[0]
         path = ""
         systems = self.soup.find_all("system")
+        with open("template.txt") as template:
+            for line in template:
+                if console == line.split(";")[0]:
+                    cfolder = line.split(";")[1].replace("/", "")
+
         for system in systems:
-            if console in system.find("fullname"):
+
+            path = system.find("path").text
+            if cfolder.lower() == path.split("/")[-1].lower():
                 extensions = system.find("extension").text.split(" ")
-                path = system.find("path").text+"/"
-                #print("ext: "+str(extensions)+"\n\tpath: "+str(path))
+                path = path+"/"
                 for extension in extensions:
                     if os.path.isfile(path+rom+extension):
+                        print("Found at: "+path+rom+extension)
                         return path+rom+extension
+
         return "Console: "+console+ ", path: "+path+rom+" - ERROR CHECK FILE EXTENSION"
 
 if __name__ == "__main__":
