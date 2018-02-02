@@ -59,17 +59,18 @@ class RomlistConverter():
                     cfolder = line.split(";")[1].replace("/", "")
 
         for system in systems:
-
             path = system.find("path").text
+            print("Path")
             if cfolder.lower() == path.split("/")[-1].lower():
                 extensions = system.find("extension").text.split(" ")
                 path = path+"/"
+
                 for extension in extensions:
                     if os.path.isfile(path+rom+extension):
                         print("Found at: "+path+rom+extension)
                         return path+rom+extension
 
-        return "Console: "+console+ ", path: "+path+rom+" - ERROR CHECK FILE EXTENSION"
+        return "Console: "+console+ "\nPath: "+path+"\nRom: "+rom+"\nSplit path: "+path.split("/")[-1].lower()+"cfolder: "+cfolder+"\n============"
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
