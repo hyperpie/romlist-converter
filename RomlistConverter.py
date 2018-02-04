@@ -53,15 +53,21 @@ class RomlistConverter():
         console = console.split("\n")[0]
         path = ""
         systems = self.soup.find_all("system")
+
+        done = False
         with open("template.txt") as template:
             for line in template:
                 if console == line.split(";")[0]:
                     cfolder = line.split(";")[1].replace("/", "")
+                    done = True
+                    break
+            if not done:
+                return "Console: "+console+" - ERROR, console not in TEMPLATE? Please add."
 
         for system in systems:
             path = system.find("path").text
-            print("Path")
-            if cfolder.lower() == path.split("/")[-1].lower():
+            pathfolder = path.split("/")[-1].lower()
+            if cfolder == pathfolder:
                 extensions = system.find("extension").text.split(" ")
                 path = path+"/"
 
@@ -69,8 +75,9 @@ class RomlistConverter():
                     if os.path.isfile(path+rom+extension):
                         print("Found at: "+path+rom+extension)
                         return path+rom+extension
+                return path+rom+" - ERROR, does not exist? Please verify filename"
 
-        return "Console: "+console+ "\nPath: "+path+"\nRom: "+rom+"\nSplit path: "+path.split("/")[-1].lower()+"cfolder: "+cfolder+"\n============"
+        return cfolder+", "+rom+" - ERROR, can't find system rom folder?"
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
