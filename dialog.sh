@@ -1,6 +1,5 @@
 #!/bin/bash
-listfolder='/home/jonas/romlists/'
-'/home/pi/.attract/romlists/'
+listfolder='/home/pi/.attract/romlists/'
 
 regex='\(.*cave.*\|.*pgm.*\|.*psikyo.*\|.*technos.*\|.*visco.*\|.*wwf.*\|.*classics.*\|.*collection.*\|.*hacks.*\|.*shmup.*\|.*hacks.*\).*.txt'
 
