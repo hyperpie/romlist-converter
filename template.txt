@@ -66,7 +66,7 @@ Sega SC-3000;sc-3000/;.sg%.sc%.bin
 SegaSC-3000;sc-3000/;.sg%.sc%.bin
 Sega SG-1000;sg-1000/;.sg%.bin
 Sinclair ZX Spectrum;zxspectrum/;.sna%.szx%.z80%.tap%.tzx%.gz%.udi%.mgt%.img%.trd%.scl%.dsk
-SNK Neo Geo AES;neogoe/;.fba
+SNK Neo Geo AES;neogeo/;.fba
 SNK Neo Geo Pocket Color;ngpc/;.ngc
 SNK Neo Geo Pocket;ngp/;.ngp
 SNK-Neo-Geo-CD;neogeocd/;.cue%.chd
