@@ -83,6 +83,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         RomlistConverter().run_menu()
     else:
-        for romlistfile in sys.argv[1:]:
+        for romlistfile in sys.argv[1].split("\n"):
             print(romlistfile)
             RomlistConverter().parse_romlist(romlistfile)

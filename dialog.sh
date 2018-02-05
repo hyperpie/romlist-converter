@@ -1,5 +1,6 @@
 #!/bin/bash
-listfolder='/home/pi/.attract/romlists/'
+listfolder='/home/jonas/romlists/'
+'/home/pi/.attract/romlists/'
 
 regex='\(.*cave.*\|.*pgm.*\|.*psikyo.*\|.*technos.*\|.*visco.*\|.*wwf.*\|.*classics.*\|.*collection.*\|.*hacks.*\|.*shmup.*\|.*hacks.*\).*.txt'
 
@@ -13,20 +14,30 @@ cmd=(dialog --stdout --no-items \
         --ok-label "Convert" \
         --checklist "Select romlists to convert (SPACE selects):" 22 76 16)
 
+if [[ ! $menu ]]
+then
+    exit 1
+fi
+
 if (($menu == 1))
 then
-files=$(find $listfolder -maxdepth 1 -iregex $regex -printf '%f\n')
-python RomlistConverter.py "$files"
+    files=$(find $listfolder -maxdepth 1 -iregex $regex -printf '%f\n')
+    python RomlistConverter.py "$files"
+    exit 1
 elif (($menu == 2))
 then
-options=$(find $listfolder -maxdepth 1 -iregex $regex -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}' | sort)
-
-choices=$("${cmd[@]}" ${options} | sed 's/+/ /g')
-python RomlistConverter.py "$choices"
+    options=$(find $listfolder -maxdepth 1 -iregex $regex -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}' | sort)
 elif (($menu == 3))
 then
-options=$(find $listfolder -maxdepth 1 -iregex '.*.txt' -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}' | sort)
+    options=$(find $listfolder -maxdepth 1 -iregex '.*.txt' -printf "%f\n" | sed 's/ /+/g' | awk '{print $0, "off"}' | sort)
+fi
 
 choices=$("${cmd[@]}" ${options} | sed 's/+/ /g')
-python RomlistConverter.py "$choices"
+clear
+
+if [[ $choices ]]
+then
+    python RomlistConverter.py "$choices"
+else
+    echo "Cancelled, or no files chosen. No conversion done."
 fi
