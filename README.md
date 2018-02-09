@@ -19,5 +19,23 @@ Contains some game console metadata needed to verify that roms exists in their c
 * _/bin/bash dialog.sh_ (or make file executable with *chmod +x*)
 * _python RomlistConverter.py_
 
+### Adding to HP2
+* Install BS4
+* add the following to es_systems.cfg
+	
+  <system>
+    <name>Romlist Convertor</name>
+    <fullname>Romlist Convertor</fullname>
+    <path>/home/pi/RetroPie/roms/romlist-convertor</path>
+    <extension>.sh .SH</extension>
+    <command>bash %ROM%</command>
+    <platform>Romlist Convertor</platform>
+    <theme>romlist-convertor</theme>
+  </system>
+
+* Add the new theme to ES
+* mkdir /home/pi/RetroPie/roms/romlist-convertor
+* transfer the files to the above location and chmod 777
+
 ### TODO
 * You tell me!
