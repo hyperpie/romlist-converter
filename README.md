@@ -20,7 +20,7 @@ Contains some game console metadata needed to verify that roms exists in their c
 * _python RomlistConverter.py_
 
 ### Adding to HP2
-* Install BS4
+* Install BS4 (sudo pip install bs4)
 * add the following to es_systems.cfg
 ``` xml	
   <system>
