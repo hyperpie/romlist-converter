@@ -55,7 +55,7 @@ class RomlistConverter():
         systems = self.soup.find_all("system")
 
         done = False
-        with open("template.txt") as template:
+        with open("/home/pi/RetroPie/roms/romlist-convertor/template.txt") as template:
             for line in template:
                 if console == line.split(";")[0]:
                     cfolder = line.split(";")[1].replace("/", "")
