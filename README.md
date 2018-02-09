@@ -22,21 +22,23 @@ Contains some game console metadata needed to verify that roms exists in their c
 ### Adding to HP2
 * Install BS4 (sudo pip install bs4)
 * add the following to es_systems.cfg
+
 ``` xml	
   <system>
-    <name>Romlist Convertor</name>
-    <fullname>Romlist Convertor</fullname>
-    <path>/home/pi/RetroPie/roms/romlist-convertor</path>
+    <name>Romlist Converter</name>
+    <fullname>Romlist Converter</fullname>
+    <path>/home/pi/RetroPie/roms/romlist-converter</path>
     <extension>.sh .SH</extension>
     <command>bash %ROM%</command>
     <platform>Romlist Convertor</platform>
-    <theme>romlist-convertor</theme>
+    <theme>romlist-converter</theme>
   </system>
 ```
 
 * Add the new theme to ES
-* mkdir /home/pi/RetroPie/roms/romlist-convertor
+* mkdir /home/pi/RetroPie/roms/romlist-converter
 * transfer the files to the above location and chmod 777
+* upload and unzip the themes to the HP2_NoMeta and HP2_Meta folders
 
 ### TODO
 * You tell me!
