@@ -22,7 +22,7 @@ Contains some game console metadata needed to verify that roms exists in their c
 ### Adding to HP2
 * Install BS4
 * add the following to es_systems.cfg
-	
+``` xml	
   <system>
     <name>Romlist Convertor</name>
     <fullname>Romlist Convertor</fullname>
@@ -32,6 +32,7 @@ Contains some game console metadata needed to verify that roms exists in their c
     <platform>Romlist Convertor</platform>
     <theme>romlist-convertor</theme>
   </system>
+```
 
 * Add the new theme to ES
 * mkdir /home/pi/RetroPie/roms/romlist-convertor
