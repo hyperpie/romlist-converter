@@ -21,7 +21,7 @@ fi
 if (($menu == 1))
 then
     files=$(find $listfolder -maxdepth 1 -iregex $regex -printf '%f\n')
-    python RomlistConverter.py "$files"
+    python /home/pi/RetroPie/roms/romlist-convertor/RomlistConverter.py "$files"
     exit 1
 elif (($menu == 2))
 then
@@ -36,7 +36,7 @@ clear
 
 if [[ $choices ]]
 then
-    python RomlistConverter.py "$choices"
+    python /home/pi/RetroPie/roms/romlist-convertor/RomlistConverter.py "$choices"
 else
     echo "Cancelled, or no files chosen. No conversion done."
 fi
