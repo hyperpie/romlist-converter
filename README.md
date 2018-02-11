@@ -30,15 +30,14 @@ Contains some game console metadata needed to verify that roms exists in their c
     <path>/home/pi/RetroPie/roms/romlist-converter</path>
     <extension>.sh .SH</extension>
     <command>bash %ROM%</command>
-    <platform>Romlist Convertor</platform>
+    <platform>Romlist Converter</platform>
     <theme>romlist-converter</theme>
   </system>
 ```
 
-* Add the new theme to ES
 * mkdir /home/pi/RetroPie/roms/romlist-converter
 * transfer the files to the above location and chmod 777
-* upload and unzip the themes to the HP2_NoMeta and HP2_Meta folders
+* upload and unzip the themes to the /home/pi/.emulationstation/themes/HP2_NoMeta/ and /home/pi/.emulationstation/themes/HP2_Meta/ folders theme name needs to be romlist-converter
 
 ### TODO
 * You tell me!
